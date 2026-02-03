@@ -1,4 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Portfolio của Nguyễn Văn A đã load xong!');
-    alert('Chào mừng bạn đến với portfolio thật trên Internet của mình!');
-});
+function updateClock() {
+    const now = new Date();
+
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    // Thêm số 0 phía trước nếu < 10
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    const timeString = hours + ":" + minutes + ":" + seconds;
+
+    document.getElementById("clock").innerText = timeString;
+}
+
+// Cập nhật mỗi 1 giây
+setInterval(updateClock, 1000);
+
+// Gọi lần đầu khi load trang
+updateClock();
